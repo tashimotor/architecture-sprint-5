@@ -15,7 +15,7 @@ pipeline:
   model_weights: "bert-base-cased"            # Весы модели BERT
   cache_dir: null
 - name: DIETClassifier                        # Классификатор на базе DIET
-  epochs: 1                                   # Минимальное количество эпох обучения
+  epochs: 300                                 # Минимальное количество эпох обучения
   transformer_size: 32                        # Минимальный размер слоя трансформера
   number_of_transformer_layers: 1             # Один слой трансформера
   use_masked_language_model: false            # Отключено для ускорения
@@ -25,7 +25,7 @@ pipeline:
     # Минимальные скрытые слои
 - name: EntitySynonymMapper                   # Маппер синонимов сущностей
 - name: ResponseSelector                      # Минимальный выбор ответа
-  epochs: 1                                   # Минимальное количество эпох обучения
+  epochs: 100                                 # Минимальное количество эпох обучения
 
 policies:
 - name: MemoizationPolicy
@@ -33,6 +33,6 @@ policies:
 - name: RulePolicy
 - name: TEDPolicy
   max_history: 2                              # Минимальное количество шагов в истории
-  epochs: 1                                   # Минимальное количество эпох обучения
+  epochs: 100                                 # Минимальное количество эпох обучения
   constrain_similarities: true
 assistant_id: 20250518-185705-frayed-revolver
